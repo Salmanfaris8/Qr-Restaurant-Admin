@@ -392,6 +392,56 @@ export const DEFAULT_TEMPLATE4_CONFIG: TemplateConfig = {
   updatedAt: new Date().toISOString(),
 };
 
+export const DEFAULT_TEMPLATE5_CONFIG: TemplateConfig = {
+  id: "template5-default",
+  templateType: "template5",
+  version: "1.0",
+  name: "Fauget Hotel Golden Menu",
+  primaryColor: "#fdf3dc",
+  accentColor: "#b8860b",
+  backgroundColor: "#e8a020",
+  fontFamily: "serif",
+  elements: [],
+  spacing: { headerHeight: 200, sectionSpacing: 18, cardGap: 14 },
+  layout: { menuColumns: 3, cardStyle: "elevated", showDividers: true, showPriceTag: true },
+  headerSection: {
+    alignment: "center",
+    typography: { headingFontSize: 36, contentFontSize: 14, headingFontWeight: 900, contentFontWeight: 700 },
+  },
+  menuSection: {
+    layout: { headerAlignment: "center", contentAlignment: "start", imagePosition: "none", contentPosition: "left", gap: 14 },
+    typography: { headingFontSize: 15, contentFontSize: 13, headingFontWeight: 900, contentFontWeight: 400 },
+  },
+  footer: { headingAlignment: "center", addressAlignment: "center", iconsAlignment: "center", headingFontSize: 14, addressFontSize: 11, spacing: 18 },
+  createdAt: new Date().toISOString(),
+  updatedAt: new Date().toISOString(),
+};
+
+export const DEFAULT_TEMPLATE6_CONFIG: TemplateConfig = {
+  id: "template6-default",
+  templateType: "template6",
+  version: "1.0",
+  name: "Restaurant Food Menu",
+  primaryColor: "#5a1535",
+  accentColor: "#d4a47a",
+  backgroundColor: "#3d1020",
+  fontFamily: "sans-serif",
+  elements: [],
+  spacing: { headerHeight: 180, sectionSpacing: 16, cardGap: 16 },
+  layout: { menuColumns: 1, cardStyle: "elevated", showDividers: true, showPriceTag: true },
+  headerSection: {
+    alignment: "center",
+    typography: { headingFontSize: 52, contentFontSize: 28, headingFontWeight: 700, contentFontWeight: 700 },
+  },
+  menuSection: {
+    layout: { headerAlignment: "center", contentAlignment: "start", imagePosition: "left", contentPosition: "left", gap: 16 },
+    typography: { headingFontSize: 16, contentFontSize: 13, headingFontWeight: 800, contentFontWeight: 400 },
+  },
+  footer: { headingAlignment: "start", addressAlignment: "start", iconsAlignment: "start", headingFontSize: 14, addressFontSize: 13, spacing: 16 },
+  createdAt: new Date().toISOString(),
+  updatedAt: new Date().toISOString(),
+};
+
 // ---------------------------------------------------------------------------
 // Utility functions
 // ---------------------------------------------------------------------------
