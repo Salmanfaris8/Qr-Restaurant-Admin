@@ -442,6 +442,138 @@ export const DEFAULT_TEMPLATE6_CONFIG: TemplateConfig = {
   updatedAt: new Date().toISOString(),
 };
 
+export const DEFAULT_TEMPLATE7_CONFIG: TemplateConfig = {
+  id: "template7-default",
+  templateType: "template7",
+  version: "1.0",
+  name: "Elegant Light Menu",
+
+  primaryColor: "#1a1a1a",
+  accentColor: "#5a5a5a",
+  backgroundColor: "#f0ece8",
+  fontFamily: "sans-serif",
+
+  elements: [],
+
+  spacing: {
+    headerHeight: 140,
+    sectionSpacing: 14,
+    cardGap: 10,
+  },
+
+  layout: {
+    menuColumns: 2,
+    cardStyle: "bordered",
+    showDividers: false,
+    showPriceTag: true,
+  },
+
+  headerSection: {
+    alignment: "center",
+    typography: {
+      headingFontSize: 44,
+      contentFontSize: 13,
+      headingFontWeight: 700,
+      contentFontWeight: 400,
+    },
+  },
+
+  menuSection: {
+    layout: {
+      headerAlignment: "start",
+      contentAlignment: "start",
+      imagePosition: "right",
+      contentPosition: "left",
+      gap: 10,
+    },
+
+    typography: {
+      headingFontSize: 15,
+      contentFontSize: 12,
+      headingFontWeight: 700,
+      contentFontWeight: 400,
+    },
+  },
+
+  footer: {
+    headingAlignment: "start",
+    addressAlignment: "start",
+    iconsAlignment: "end",
+    headingFontSize: 20,
+    addressFontSize: 9,
+    spacing: 14,
+  },
+
+  createdAt: new Date().toISOString(),
+  updatedAt: new Date().toISOString(),
+};
+
+export const DEFAULT_TEMPLATE8_CONFIG: TemplateConfig = {
+  id: "template8-default",
+  templateType: "template8",
+  version: "1.0",
+  name: "Gourmet Forest Green & Terracotta Menu",
+
+  primaryColor: "#1c4e3a",
+  accentColor: "#c05c38",
+  backgroundColor: "#faf3e0",
+  fontFamily: "sans-serif",
+
+  elements: [],
+
+  spacing: {
+    headerHeight: 140,
+    sectionSpacing: 14,
+    cardGap: 10,
+  },
+
+  layout: {
+    menuColumns: 2,
+    cardStyle: "bordered",
+    showDividers: false,
+    showPriceTag: true,
+  },
+
+  headerSection: {
+    alignment: "center",
+    typography: {
+      headingFontSize: 50,
+      contentFontSize: 13,
+      headingFontWeight: 800,
+      contentFontWeight: 400,
+    },
+  },
+
+  menuSection: {
+    layout: {
+      headerAlignment: "start",
+      contentAlignment: "start",
+      imagePosition: "right",
+      contentPosition: "left",
+      gap: 10,
+    },
+
+    typography: {
+      headingFontSize: 16,
+      contentFontSize: 13,
+      headingFontWeight: 700,
+      contentFontWeight: 400,
+    },
+  },
+
+  footer: {
+    headingAlignment: "center",
+    addressAlignment: "center",
+    iconsAlignment: "center",
+    headingFontSize: 19,
+    addressFontSize: 12,
+    spacing: 14,
+  },
+
+  createdAt: new Date().toISOString(),
+  updatedAt: new Date().toISOString(),
+};
+
 // ---------------------------------------------------------------------------
 // Utility functions
 // ---------------------------------------------------------------------------

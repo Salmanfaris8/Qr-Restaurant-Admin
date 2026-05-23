@@ -12,27 +12,27 @@ const DEMO_SECTIONS = [
     title: "Appetizers",
     photo: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=300&q=80",
     items: [
-      { name: "Garlic Bread",   price: "$1.23456" },
-      { name: "Chicken Wings",  price: "$1.23456" },
-      { name: "Caesar Salad",   price: "$1.23456" },
+      { name: "Garlic Bread",   price: "₹ 120" },
+      { name: "Chicken Wings",  price: "₹ 120" },
+      { name: "Caesar Salad",   price: "₹ 120" },
     ],
   },
   {
     title: "Main Course",
     photo: "https://images.unsplash.com/photo-1544025162-d76694265947?w=300&q=80",
     items: [
-      { name: "Grilled Chicken Pasta",     price: "$1.23456" },
-      { name: "Beef Burger + Fries",       price: "$1.23456" },
-      { name: "Teriyaki Salmon Rice Bowl", price: "$1.23456" },
+      { name: "Grilled Chicken Pasta",     price: "₹ 120" },
+      { name: "Beef Burger + Fries",       price: "₹ 120" },
+      { name: "Teriyaki Salmon Rice Bowl", price: "₹ 120" },
     ],
   },
   {
     title: "Drinks",
     photo: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300&q=80",
     items: [
-      { name: "Iced Lemon Tea",     price: "$1.23456" },
-      { name: "Hot Cappuccino",     price: "$1.23456" },
-      { name: "Fresh Orange Juice", price: "$1.23456" },
+      { name: "Iced Lemon Tea",     price: "₹ 120" },
+      { name: "Hot Cappuccino",     price: "₹ 120" },
+      { name: "Fresh Orange Juice", price: "₹ 120" },
     ],
   },
 ];

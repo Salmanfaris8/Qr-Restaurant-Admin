@@ -12,6 +12,8 @@ import {
   DEFAULT_TEMPLATE4_CONFIG,
   DEFAULT_TEMPLATE5_CONFIG,
   DEFAULT_TEMPLATE6_CONFIG,
+  DEFAULT_TEMPLATE7_CONFIG,
+  DEFAULT_TEMPLATE8_CONFIG,
 } from "../pages/Templateconfig";
 import Template1 from "../Templates/Template1";
 import Template2 from "../Templates/Template2";
@@ -19,6 +21,8 @@ import Template3 from "../Templates/Template3";
 import Template4 from "../Templates/Template4";
 import Template5 from "../Templates/Template5";
 import Template6 from "../Templates/Template6";
+import Template7 from "../Templates/Template7";
+import Template8 from "../Templates/Template8";
 import axios from "axios";
 
 type TemplateType = "template1" | "template2" | "template3" | "template4" | string;
@@ -64,6 +68,10 @@ function inferTemplateKind(...values: unknown[]): TemplateType {
 
   if (templateMatch) return `template${templateMatch}`;
 
+  if (text.some((value) => value.includes("elegant light") || value.includes("light menu") || value.includes("elegant menu")))
+    return "template7";
+  if (text.some((value) => value.includes("gourmet forest") || value.includes("forest green") || value.includes("terracotta") || value.includes("template 8") || value.includes("template8")))
+    return "template8";
   if (text.some((value) => value.includes("coffee") || value.includes("cafe") || value.includes("rimberio")))
     return "template3";
   if (text.some((value) => value.includes("fauget hotel") || value.includes("golden hotel") || value.includes("hotel golden")))
@@ -85,6 +93,8 @@ function getDefaultsForKind(kind: TemplateType) {
     case "template4": return { defaultConfig: DEFAULT_TEMPLATE4_CONFIG, component: Template4 };
     case "template5": return { defaultConfig: DEFAULT_TEMPLATE5_CONFIG, component: Template5 };
     case "template6": return { defaultConfig: DEFAULT_TEMPLATE6_CONFIG, component: Template6 };
+    case "template7": return { defaultConfig: DEFAULT_TEMPLATE7_CONFIG, component: Template7 };
+    case "template8": return { defaultConfig: DEFAULT_TEMPLATE8_CONFIG, component: Template8 };
     case "template1":
     default:          return { defaultConfig: DEFAULT_TEMPLATE1_CONFIG, component: Template1 };
   }
