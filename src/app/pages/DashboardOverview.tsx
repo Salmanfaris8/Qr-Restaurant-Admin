@@ -1,13 +1,13 @@
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 import {
-  ShoppingCart,
   Utensils,
   QrCode,
-  DollarSign,
   Plus,
   Palette,
   TrendingUp,
+  ScanLine,
+  Grid3X3,
 } from "lucide-react";
 import {
   LineChart,
@@ -22,6 +22,9 @@ import {
 } from "recharts";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
+  const API = import.meta.env.VITE_API_URL;
 
 const scanData = [
   { day: "Mon", scans: 45 },
@@ -44,6 +47,8 @@ const popularDishes = [
 export function DashboardOverview() {
   const [showPopup, setShowPopup] = useState(false);
   const [subscription, setSubscription] = useState(null);
+  const [categories, setCategories] = useState([]);
+  const [menuItems, setMenuItems] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -82,6 +87,47 @@ export function DashboardOverview() {
     }
   }, []);
 
+  const fetchCategories = async () => {
+    try {
+      const token = localStorage.getItem("token");
+
+      const res = await axios.get(`${API}/hotel-admin/categories`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      setCategories(res.data.data || []);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const fetchMenuItems = async (categoryId) => {
+    try {
+      const token = localStorage.getItem("token");
+
+      let url = `${API}/hotel-admin/menu-items`;
+
+      if (categoryId && categoryId !== "all") {
+        url = `${API}/hotel-admin/menu-items/${categoryId}`;
+      }
+
+      const res = await axios.get(url, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      setMenuItems(res.data.data || []);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchCategories();
+    fetchMenuItems();
+  }, []);
+
   const requireSubscription = () => {
     if (!subscription) {
       setShowPopup(true);
@@ -113,9 +159,9 @@ export function DashboardOverview() {
         <Card className="bg-white shadow-sm border-gray-200 hover:shadow-md transition-shadow">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-sm font-medium text-gray-600">
-              Today's Orders
+              Total QR Scans 
             </CardTitle>
-            <ShoppingCart className="w-5 h-5 text-[#1E88E5]" />
+            <ScanLine className="w-5 h-5 text-[#1E88E5]" />
           </CardHeader>
           <CardContent>
             <div className="text-3xl font-bold text-gray-900">48</div>
@@ -123,19 +169,6 @@ export function DashboardOverview() {
               <TrendingUp className="w-3 h-3" />
               +12% from yesterday
             </p>
-          </CardContent>
-        </Card>
-
-        <Card className="bg-white shadow-sm border-gray-200 hover:shadow-md transition-shadow">
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-gray-600">
-              Total Menu Items
-            </CardTitle>
-            <Utensils className="w-5 h-5 text-[#1E88E5]" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-bold text-gray-900">124</div>
-            <p className="text-xs text-gray-500 mt-1">Across 8 categories</p>
           </CardContent>
         </Card>
 
@@ -158,18 +191,35 @@ export function DashboardOverview() {
         <Card className="bg-white shadow-sm border-gray-200 hover:shadow-md transition-shadow">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-sm font-medium text-gray-600">
-              Monthly Revenue
+              Total Categories
             </CardTitle>
-            <DollarSign className="w-5 h-5 text-[#1E88E5]" />
+            <Grid3X3  className="w-5 h-5 text-[#1E88E5]" />
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-bold text-gray-900">₹45,230</div>
+            <div className="text-3xl font-bold text-gray-900">
+              {categories.length}
+            </div>
             <p className="text-xs text-[#00C853] flex items-center gap-1 mt-1">
-              <TrendingUp className="w-3 h-3" />
-              +18% from last month
+              categories created so far
             </p>
           </CardContent>
         </Card>
+
+        <Card className="bg-white shadow-sm border-gray-200 hover:shadow-md transition-shadow">
+          <CardHeader className="flex flex-row items-center justify-between pb-2">
+            <CardTitle className="text-sm font-medium text-gray-600">
+              Total Menu Items
+            </CardTitle>
+            <Utensils className="w-5 h-5 text-[#1E88E5]" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-3xl font-bold text-gray-900">
+              {menuItems.length}
+            </div>
+            <p className="text-xs text-[#00C853] mt-1">Across {categories.length} categories</p>
+          </CardContent>
+        </Card>
+
       </div>
 
       {/* Charts */}

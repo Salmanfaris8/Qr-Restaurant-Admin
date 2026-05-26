@@ -169,7 +169,7 @@ export function QRCodes() {
 
         {/* ================= RESTAURANT ================= */}
         <TabsContent value="restaurant" className="space-y-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-6">
             <Card className="bg-white shadow-sm border-gray-200">
               <CardHeader>
                 <CardTitle>Restaurant QR Code</CardTitle>
@@ -235,100 +235,8 @@ export function QRCodes() {
                     Download PNG
                   </Button>
                 </div>
-
-                <div className="pt-4 border-t border-gray-200">
-                  <Label htmlFor="customUrl">Custom URL (Optional)</Label>
-                  <Input
-                    id="customUrl"
-                    placeholder="your-restaurant-name"
-                    className="mt-2"
-                    disabled={!subscription}
-                  />
-                  <p className="text-xs text-gray-500 mt-2">
-                    Customize your menu URL for easier sharing
-                  </p>
-                </div>
               </CardContent>
             </Card>
-
-            {/* SETTINGS CARD (UNCHANGED) */}
-            <Card className="bg-white shadow-sm border-gray-200">
-                    <CardHeader>
-                      <CardTitle>QR Code Settings</CardTitle>
-                      <p className="text-sm text-gray-500">Customize your QR code appearance</p>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div>
-                        <Label>QR Code Size</Label>
-                        <div className="grid grid-cols-3 gap-3 mt-2">
-                          <Button disabled={!subscription} variant="outline" className="h-auto py-6 flex-col">
-                            <span className="text-2xl mb-1">S</span>
-                            <span className="text-xs">Small</span>
-                          </Button>
-                          <Button disabled={!subscription} className="h-auto py-6 flex-col bg-[#1E88E5]">
-                            <span className="text-2xl mb-1">M</span>
-                            <span className="text-xs">Medium</span>
-                          </Button>
-                          <Button disabled={!subscription} variant="outline" className="h-auto py-6 flex-col">
-                            <span className="text-2xl mb-1">L</span>
-                            <span className="text-xs">Large</span>
-                          </Button>
-                        </div>
-                      </div>
-
-                      <div>
-                        <Label>Frame Style</Label>
-                        <div className="grid grid-cols-2 gap-3 mt-2">
-                          <Button
-                          onClick={() => {
-                            if (!requireSubscription()) return;
-                          }}
-                          variant="outline" className="h-auto py-4">
-                            No Frame
-                          </Button>
-                          <Button 
-                          onClick={() => {
-                            if (!requireSubscription()) return;
-                          }}
-                          className="h-auto py-4 bg-[#1E88E5]">
-                            With Frame
-                          </Button>
-                        </div>
-                      </div>
-
-                      <div>
-                        <Label>Include Logo</Label>
-                        <div 
-                        onClick={() => {
-                          if (!requireSubscription()) return;
-                        }}
-                        className="mt-2 border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-[#1E88E5] transition-colors cursor-pointer">
-                          <Plus className="w-8 h-8 mx-auto text-gray-400 mb-2" />
-                          <p className="text-sm text-gray-600">Upload restaurant logo</p>
-                          <p className="text-xs text-gray-400 mt-1">Logo will appear in center of QR</p>
-                        </div>
-                      </div>
-
-                      <div className="pt-4">
-                        <Label htmlFor="qrColor">QR Code Color</Label>
-                        <div className="flex gap-3 mt-2">
-                          <Input
-                            id="qrColor"
-                            type="color"
-                            defaultValue="#1E88E5"
-                            className="w-20 h-10"
-                            disabled={!subscription}
-                          />
-                          <Input
-                            defaultValue="#1E88E5"
-                            placeholder="Hex color"
-                            className="flex-1"
-                            disabled={!subscription}
-                          />
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
           </div>
         </TabsContent>
 
@@ -367,6 +275,10 @@ export function QRCodes() {
                   alt={`Table ${num}`}
                   className="w-10 h-10 sm:w-16 sm:h-16 object-contain"
                 />
+
+                <span style={{fontSize: "9px"}} className="font-mono text-[#1E88E5]">
+                {qr.url || "Generate QR first"}
+                </span>
 
                 {/* Download button (optional bonus) */}
                 <Button

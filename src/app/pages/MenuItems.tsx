@@ -158,9 +158,6 @@ export function MenuItems() {
   }
 };
 
-console.log(menuItems);
-
-
 useEffect(() => {
   if (token) {
     fetchCategories();

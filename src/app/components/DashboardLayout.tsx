@@ -32,7 +32,6 @@ const navItems = [
   { path: "/themes", label: "Theme Selection", icon: Palette },
   { path: "/qr-codes", label: "QR Codes", icon: QrCode },
   { path: "/subscription", label: "Subscription", icon: CreditCard },
-  { path: "/orders", label: "Orders", icon: ShoppingCart },
   { path: "/customers", label: "Customers", icon: Users },
   { path: "/analytics", label: "Analytics", icon: BarChart3 },
   { path: "/help", label: "Help & Support", icon: HelpCircle },

@@ -7,7 +7,6 @@ import { MenuCategories } from "./pages/MenuCategories";
 import { MenuItems } from "./pages/MenuItems";
 import { ThemeSelection } from "./pages/ThemeSelection";
 import { QRCodes } from "./pages/QRCodes";
-import { Orders } from "./pages/Orders";
 import { Customers } from "./pages/Customers";
 import { Analytics } from "./pages/Analytics";
 import { Subscription } from "./pages/Subscription";
@@ -37,7 +36,6 @@ export const router = createBrowserRouter([
           { path: "menu-items", Component: MenuItems },
           { path: "themes", Component: ThemeSelection },
           { path: "qr-codes", Component: QRCodes },
-          { path: "orders", Component: Orders },
           { path: "customers", Component: Customers },
           { path: "analytics", Component: Analytics },
           { path: "subscription", Component: Subscription },
